@@ -12,7 +12,8 @@ class LCDDriver {
 
   std::string rotation_text_line0_;
   std::string rotation_text_line1_;
-  size_t rotation_start = 0;
+  size_t rotation1_start = 0;
+  size_t rotation2_start = 0;
 
  public:
   LCDDriver();

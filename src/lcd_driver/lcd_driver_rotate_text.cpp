@@ -1,7 +1,8 @@
 #include "lcd_driver/lcd_driver.h"
 
 void LCDDriver::rotateText() {
-  size_t text_index_line0 = rotation_start;
+  size_t text_index_line0 = rotation1_start;
+  size_t text_index_line1 = rotation1_start;
 
   for (size_t column = 0; column < 16; ++column) {
     setCursor(column, 0);
@@ -15,12 +16,29 @@ void LCDDriver::rotateText() {
     if (text_index_line0 >= rotation_text_line0_.size()) {
       text_index_line0 = 0;
     }
+
+    setCursor(column, 1);
+
+    if (text_index_line1 < rotation_text_line1_.size()) {
+      writeChar(rotation_text_line1_[text_index_line1]);
+    }
+
+    ++text_index_line1;
+
+    if (text_index_line1 >= rotation_text_line1_.size()) {
+      text_index_line1 = 0;
+    }
   }
 
-  ++rotation_start;
+  ++rotation1_start;
+  ++rotation2_start;
 
-  if (rotation_start >= rotation_text_line0_.size()) {
-    rotation_start = 0;
+  if (rotation1_start >= rotation_text_line0_.size()) {
+    rotation1_start = 0;
+  }
+
+  if (rotation2_start >= rotation_text_line1_.size()) {
+    rotation2_start = 0;
   }
 }
 

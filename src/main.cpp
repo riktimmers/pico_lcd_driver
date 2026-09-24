@@ -13,7 +13,8 @@ int main() {
   std::cout << "Startup\n";
 
   LCDDriver lcd_driver;
-  lcd_driver.setText("Hello world! How is the world doing?", 0);
+  lcd_driver.setText("Hello world! What is going on today?", 0);
+  lcd_driver.setText("WoWoWoWoWo", 1);
 
   while (true) {
     sleep_ms(500);
