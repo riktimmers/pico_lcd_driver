@@ -10,6 +10,10 @@ class LCDDriver {
   size_t write_offset_{0};
   std::string last_text_;
 
+  std::string rotation_text_line0_;
+  std::string rotation_text_line1_;
+  size_t rotation_start = 0;
+
  public:
   LCDDriver();
 
@@ -23,6 +27,9 @@ class LCDDriver {
 
   void setCursor(const uint column, const uint line);
   void writeChar(const char character);
+
+  void setText(const std::string &text, const uint line);
+  void rotateText();
 
  private:
   void setup();

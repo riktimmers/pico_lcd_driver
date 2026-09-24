@@ -21,7 +21,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS On)
 
 include_directories(include)
 
-set(source_lcd_driver src/lcd_driver/lcd_driver.cpp)
+set(source_lcd_driver src/lcd_driver/lcd_driver.cpp
+                      src/lcd_driver/lcd_driver_rotate_text.cpp)
 set(source_code src/main.cpp ${source_lcd_driver})
 
 add_executable(main ${source_code})

@@ -1,5 +1,7 @@
 #include <chrono>
+#include <functional>
 #include <iostream>
+#include <thread>
 
 #include "lcd_driver/lcd_driver.h"
 #include "util/util.h"
@@ -11,6 +13,12 @@ int main() {
   std::cout << "Startup\n";
 
   LCDDriver lcd_driver;
+  lcd_driver.setText("Hello world! How is the world doing?", 0);
+
+  while (true) {
+    sleep_ms(500);
+    lcd_driver.rotateText();
+  }
 
   lcd_driver.writeText("Hello world, how are you doing?");
 
