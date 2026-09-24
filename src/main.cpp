@@ -1,12 +1,7 @@
-#include <chrono>
-#include <functional>
 #include <iostream>
-#include <thread>
 
 #include "lcd_driver/lcd_driver.h"
 #include "util/util.h"
-
-constexpr uint LED_PIN{PICO_DEFAULT_LED_PIN};
 
 int main() {
   stdio_init_all();

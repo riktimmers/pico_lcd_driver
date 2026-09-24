@@ -12,8 +12,8 @@ class LCDDriver {
 
   std::string rotation_text_line0_;
   std::string rotation_text_line1_;
+  size_t rotation0_start = 0;
   size_t rotation1_start = 0;
-  size_t rotation2_start = 0;
 
  public:
   LCDDriver();
@@ -36,6 +36,7 @@ class LCDDriver {
   void setup();
   void init();
 
+  void rotateText(const std::string &text, size_t &rotation_start, const uint line);
   void writeValue(const uint8_t value, const uint delay_us = 50);
 };
 #endif
